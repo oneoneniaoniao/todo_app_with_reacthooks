@@ -3,6 +3,8 @@ import {
   CREATE_TODO,
   DELETE_COMPLETE_TODO,
 } from "../actions";
+import { getYYYYMMDD } from "../utils";
+
 import AppContext from "../context/AppContext";
 
 const CompleteToDo = ({todo}) => {
@@ -27,8 +29,7 @@ const CompleteToDo = ({todo}) => {
   return (
     <tr>
       <td>{todo.title}</td>
-      <td>{todo.body}</td>
-      <td className="text-center">{todo.deadline}</td>
+      <td className="text-center">{getYYYYMMDD(todo.deadline)}</td>
       <td className="text-center">{todo.completedAt}</td>
       <td>
         <button

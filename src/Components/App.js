@@ -9,6 +9,7 @@ const APP_KEY = "myToDo"
 const App = () => {
   const appState = localStorage.getItem(APP_KEY)
   const initialState = appState? JSON.parse(appState):{todos: [], completeTodos:[]}
+  // const initialState = {todos: [], completeTodos:[]}
   const [state, dispatch] = useReducer(reducer, initialState)
   useEffect(()=>{
     localStorage.setItem(APP_KEY, JSON.stringify(state))

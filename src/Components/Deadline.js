@@ -6,14 +6,30 @@ registerLocale("ja", ja);
 
 const Deadline = ({handleChange, startDate} ) => {
   return (
-    <div className="inline-block m-4">
-      <span>期限: </span>
+    <div className="inline-block m-2">
       <DatePicker
         locale="ja"
-        className="bg-blue-100 rounded-lg p-1"
+        className="cursor-pointer bg-blue-100 p-1 rounded-lg"
         selected={startDate}
         dateFormat="yyyy/MM/dd"
         onChange={handleChange}
+        minDate={new Date()}
+        default
+      />
+    </div>
+  );
+};
+
+export const DeadlineGray = ({handleChange, startDate, deadline} ) => {
+  return (
+    <div className="inline-block m-2">
+      <DatePicker
+        locale="ja"
+        className="cursor-pointer hover:bg-gray-100 p-1"
+        selected={deadline}
+        dateFormat="yyyy/MM/dd"
+        onChange={handleChange}
+        minDate={new Date()}
         default
       />
     </div>

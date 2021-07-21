@@ -4,7 +4,7 @@ import {
   CHANGE_STATUS,
   DELETE_TODO,
   DELETE_ALL_TODOS,
-  // EDIT_TODO,
+  EDIT_TODO,
 } from "../actions";
 
 const todos = (state = [], action) => {
@@ -26,24 +26,24 @@ const todos = (state = [], action) => {
     targetToDo.status === "未着手" ? targetToDo.status = "進行中" : targetToDo.status = "未着手"
     return [...leftovers, targetToDo]
 
-    // case EDIT_TODO:
-    //   const editedTodo = {
-    //     title: action.title,
-    //     body: action.body,
-    //     status: action.status,
-    //     deadline: action.deadline,
-    //     createdAt: action.createdAt,
-    //     id: action.id,
-    //   };
-    //   const newState = state.map((todo) => {
-    //     if (todo.id === action.id) {
-    //       todo = editedTodo;
-    //       return todo;
-    //     } else {
-    //       return todo;
-    //     }
-    //   });
-    //   return newState;
+    case EDIT_TODO:
+      const editedTodo = {
+        title: action.title,
+        body: action.body,
+        status: action.status,
+        deadline: action.deadline,
+        createdAt: action.createdAt,
+        id: action.id,
+      };
+      const newState = state.map((todo) => {
+        if (todo.id === action.id) {
+          return editedTodo;
+        } else {
+          return todo;
+        }
+      });
+      return newState;
+
     case DELETE_TODO:
       return state.filter((todo) => todo.id !== action.id);
     case DELETE_ALL_TODOS:
