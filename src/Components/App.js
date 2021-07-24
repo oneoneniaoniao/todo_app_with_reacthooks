@@ -4,13 +4,14 @@ import Home from "./Home";
 import CompleteList from "./CompleteList";
 import AppContext from "../context/AppContext";
 import reducer from "../reducers";
+import {todoExamples, completeTodoExamples } from "../utils"
 
 const APP_KEY = "myToDo";
 const App = () => {
   const appState = localStorage.getItem(APP_KEY);
   const initialState = appState
     ? JSON.parse(appState)
-    : { todos: [], completeTodos: [] };
+    : { todos: todoExamples, completeTodos: completeTodoExamples };
   // const initialState = {todos: [], completeTodos:[]}
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
@@ -34,7 +35,6 @@ const App = () => {
           <Route path="/complete" component={CompleteList} />
         </div>
       </BrowserRouter>
-      <Home />
     </AppContext.Provider>
   );
 };

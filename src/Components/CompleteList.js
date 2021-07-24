@@ -22,8 +22,8 @@ const CompleteList = ({title}) => {
         <table className="m-4">
         <thead>
             <tr>
-              <th className="p-4 w-24">タスク</th>
-              <th className="p-4 w-24">期限</th>
+              <th className="p-4 w-48">タスク</th>
+              <th className="p-4 w-48">期限</th>
               <th className="p-4 w-24">完了日</th>
 
             </tr>
