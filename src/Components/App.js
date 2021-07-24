@@ -32,6 +32,7 @@ const App = () => {
         </nav>
         <div className="m-2">
           <Route exact path="/" component={Home} />
+          <Route path="/todo_app_with_reacthooks" component={Home} />
           <Route path="/complete" component={CompleteList} />
         </div>
       </BrowserRouter>
