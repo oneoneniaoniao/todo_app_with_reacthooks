@@ -11,7 +11,7 @@ import AppContext from "../context/AppContext";
 import { today } from "../utils";
 import { DeadlineGray } from "./Deadline";
 
-const ToDo = ({ todo, callback, reload }) => {
+const ToDo = ({ todo }) => {
   const { dispatch } = useContext(AppContext);
   const [title, setTitle] = useState(todo.title);
   const [body] = useState(todo.body);
@@ -38,7 +38,6 @@ const ToDo = ({ todo, callback, reload }) => {
 
   const onChangeStatus = () => {
     dispatch({ type: CHANGE_STATUS, id: todo.id });
-    reload === true ? callback(false) : callback(true);
   };
 
   const onSave = () => {

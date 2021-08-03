@@ -1,10 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 
 import ToDo from "./ToDo";
 import AppContext from "../context/AppContext"
 
 const ToDoList = ({status}) => {
-  const [reload, setReload] = useState(false)
   const {state} = useContext(AppContext)
   const thisTodos = state.todos.filter((todo) => todo.status === status)
   return (
@@ -21,7 +20,7 @@ const ToDoList = ({status}) => {
         </thead>
         <tbody>
           {thisTodos.map((todo) =>(
-            <ToDo key={todo.id} todo={todo} callback={setReload} reload={reload}/>
+            <ToDo key={todo.id} todo={todo}/>
           ))}
         </tbody>
       </table>
