@@ -10,7 +10,7 @@ const APP_KEY = "myToDo";
 const App = () => {
   const appState = localStorage.getItem(APP_KEY);
   const initialState = appState
-    ? JSON.parse(appState)
+? JSON.parse(appState)
     : { todos: todoExamples, completeTodos: completeTodoExamples };
   // const initialState = {todos: [], completeTodos:[]}
   const [state, dispatch] = useReducer(reducer, initialState);

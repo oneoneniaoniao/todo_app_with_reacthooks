@@ -3,7 +3,7 @@ import React, {useContext, useState} from 'react';
 import ToDo from "./ToDo";
 import AppContext from "../context/AppContext"
 
-const ToDoList = ({status, lower}) => {
+const ToDoList = ({status}) => {
   const [reload, setReload] = useState(false)
   const {state} = useContext(AppContext)
   const thisTodos = state.todos.filter((todo) => todo.status === status)
@@ -20,8 +20,8 @@ const ToDoList = ({status, lower}) => {
           </tr>
         </thead>
         <tbody>
-          {thisTodos.map((todo, index) =>(
-            <ToDo key={index} todo={todo} callback={setReload} reload={reload}/>
+          {thisTodos.map((todo) =>(
+            <ToDo key={todo.id} todo={todo} callback={setReload} reload={reload}/>
           ))}
         </tbody>
       </table>
